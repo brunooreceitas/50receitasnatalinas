@@ -1,4 +1,4 @@
-ddocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   // ============================================================
   // SMOOTH SCROLL
   // ============================================================
@@ -9,19 +9,6 @@ ddocument.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    });
-  });
-
-  // ============================================================
-  // FESTÕES ANIMADOS - MOVIMENTO REALISTA
-  // ============================================================
-  const banners = document.querySelectorAll(".diagonal-banner");
-
-  window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY;
-    banners.forEach((banner, index) => {
-      const offset = (index === 0 ? -1 : 1) * scrollPosition * 0.1;
-      banner.style.transform = `translateX(${offset}px) rotate(${index === 0 ? -10 : 10}deg)`;
     });
   });
 
@@ -42,10 +29,10 @@ ddocument.addEventListener('DOMContentLoaded', function() {
   const modalClose = modal.querySelector('.testimonial-modal-close');
 
   // Agora, vamos garantir que o clique no card do depoimento não abra um link
-  document.querySelectorAll('.testimonial-card img').forEach(card => {
+  document.querySelectorAll('.testimonial-click').forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault(); // Evita o redirecionamento para outro link
-      modalImg.src = card.src;
+      modalImg.src = card.getAttribute('data-img'); // Usa o atributo de imagem
       modal.classList.add('active');
     });
   });
