@@ -265,6 +265,13 @@ body {
   .testimonial-modal-close {
     font-size: 18px;
   }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Accessibility / Focus */
