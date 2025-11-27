@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ddocument.addEventListener('DOMContentLoaded', function() {
   // ============================================================
   // SMOOTH SCROLL
   // ============================================================
@@ -41,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalImg = modal.querySelector('.testimonial-modal-img');
   const modalClose = modal.querySelector('.testimonial-modal-close');
 
+  // Agora, vamos garantir que o clique no card do depoimento não abra um link
   document.querySelectorAll('.testimonial-card img').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault(); // Evita o redirecionamento para outro link
       modalImg.src = card.src;
       modal.classList.add('active');
     });
