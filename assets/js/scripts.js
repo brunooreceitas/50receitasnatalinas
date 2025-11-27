@@ -1,52 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Small JS: smooth scrolling and minor interactions
+document.addEventListener('DOMContentLoaded', function(){
 
-  /* ============================================================
-     SMOOTH SCROLL
-  ============================================================ */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", e => {
-      const target = document.querySelector(anchor.getAttribute("href"));
-      if (target) {
+  /* --------------------------------------------------
+     Smooth Scroll
+  -------------------------------------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if(href.length > 1 && document.querySelector(href)){
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.querySelector(href).scrollIntoView({ behavior:'smooth', block:'start' });
       }
     });
   });
 
-  /* ============================================================
-     FAQ — fallback p/ navegadores antigos
-  ============================================================ */
-  if (!("open" in document.createElement("details"))) {
-    document.querySelectorAll(".faq-accordion details").forEach(d => {
-      const summary = d.querySelector("summary");
-      summary.style.cursor = "pointer";
-      summary.addEventListener("click", () => {
-        d.classList.toggle("open");
+  /* --------------------------------------------------
+     FAQ fallback (details) for older browsers
+  -------------------------------------------------- */
+  if(!('open' in document.createElement('details'))){
+    document.querySelectorAll('.faq-accordion details').forEach(function(d){
+      var summary = d.querySelector('summary');
+      summary.style.cursor = 'pointer';
+      summary.addEventListener('click', function(){
+        d.classList.toggle('open');
       });
     });
   }
 
-  /* ============================================================
-     DEPOIMENTOS — POPUP/MODAL
-  ============================================================ */
+  /* --------------------------------------------------
+     TESTIMONIAL POPUP — FINAL
+  -------------------------------------------------- */
 
-  const modal = document.querySelector(".testimonial-modal");
-  const modalImg = modal.querySelector("img");
-  const modalClose = modal.querySelector(".testimonial-modal-close");
+  // Create modal
+  const modal = document.createElement('div');
+  modal.className = 'testimonial-modal';
+  modal.innerHTML = `
+    <div class="testimonial-modal-close">×</div>
+    <div class="testimonial-modal-content">
+      <img src="" alt="Depoimento ampliado">
+    </div>
+  `;
+  document.body.appendChild(modal);
 
-  document.querySelectorAll(".testimonial-click").forEach(card => {
-    card.addEventListener("click", () => {
-      modalImg.src = card.dataset.img;
-      modal.classList.add("active");
+  const modalImg = modal.querySelector('.testimonial-modal-content img');
+  const closeBtn = modal.querySelector('.testimonial-modal-close');
+
+  // Open modal on any testimonial-click image
+  document.querySelectorAll('.testimonial-click img').forEach(function(img){
+    img.addEventListener('click', function(){
+      modalImg.src = this.src;
+      modal.classList.add('active');
     });
   });
 
-  modalClose.addEventListener("click", () => {
-    modal.classList.remove("active");
+  // Close modal
+  closeBtn.addEventListener('click', function(){
+    modal.classList.remove('active');
   });
 
-  modal.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.remove("active");
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){
+      modal.classList.remove('active');
+    }
   });
 
 });
