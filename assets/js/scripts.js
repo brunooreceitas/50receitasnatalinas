@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.addEventListener('click', e => {
     if (e.target === modal) modal.classList.remove('active');
   });
-});
 
   // ============================================================
   // SIMPLES TOGGLE PARA 'DETAILS' EM BROWSERS MAIS ANTIGOS
