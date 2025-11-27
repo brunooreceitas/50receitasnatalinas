@@ -22,17 +22,13 @@ document.addEventListener('DOMContentLoaded', function(){
       var summary = d.querySelector('summary');
       summary.style.cursor = 'pointer';
       summary.addEventListener('click', function(){
-        if(d.classList.contains('open')){
-          d.classList.remove('open');
-        } else {
-          d.classList.add('open');
-        }
+        d.classList.toggle('open');
       });
     });
   }
 
   /* --------------------------------------------------
-     TESTIMONIAL POPUP
+     TESTIMONIAL POPUP (AGORA COMPATÍVEL COM A NOVA ESTRUTURA)
   -------------------------------------------------- */
 
   // Create modal structure
@@ -49,9 +45,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const modalImg = modal.querySelector('.testimonial-modal-content img');
   const closeBtn = modal.querySelector('.testimonial-modal-close');
 
-  // Open modal on click
-  document.querySelectorAll('.testimonial-card img').forEach(function(img){
-    img.addEventListener('click', function(){
+  // Open modal on click (AGORA USANDO .testimonial-click img)
+  document.querySelectorAll('.testimonial-click img').forEach(function(img){
+    img.addEventListener('click', function(e){
+      e.preventDefault(); // evita abrir o link
       modalImg.src = this.src;
       modal.classList.add('active');
     });
