@@ -1,69 +1,52 @@
-// Small JS: smooth scrolling and minor interactions
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-  /* --------------------------------------------------
-     Smooth Scroll
-  -------------------------------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
-    anchor.addEventListener('click', function(e){
-      var href = this.getAttribute('href');
-      if(href.length > 1 && document.querySelector(href)){
+  /* ============================================================
+     SMOOTH SCROLL
+  ============================================================ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (target) {
         e.preventDefault();
-        document.querySelector(href).scrollIntoView({ behavior:'smooth', block:'start' });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
 
-  /* --------------------------------------------------
-     FAQ fallback (details) for older browsers
-  -------------------------------------------------- */
-  if(!('open' in document.createElement('details'))){
-    document.querySelectorAll('.faq-accordion details').forEach(function(d){
-      var summary = d.querySelector('summary');
-      summary.style.cursor = 'pointer';
-      summary.addEventListener('click', function(){
-        d.classList.toggle('open');
+  /* ============================================================
+     FAQ — fallback p/ navegadores antigos
+  ============================================================ */
+  if (!("open" in document.createElement("details"))) {
+    document.querySelectorAll(".faq-accordion details").forEach(d => {
+      const summary = d.querySelector("summary");
+      summary.style.cursor = "pointer";
+      summary.addEventListener("click", () => {
+        d.classList.toggle("open");
       });
     });
   }
 
-  /* --------------------------------------------------
-     TESTIMONIAL POPUP (AGORA COMPATÍVEL COM A NOVA ESTRUTURA)
-  -------------------------------------------------- */
+  /* ============================================================
+     DEPOIMENTOS — POPUP/MODAL
+  ============================================================ */
 
-  // Create modal structure
-  const modal = document.createElement('div');
-  modal.className = 'testimonial-modal';
-  modal.innerHTML = `
-    <div class="testimonial-modal-close">×</div>
-    <div class="testimonial-modal-content">
-      <img src="" alt="Depoimento ampliado">
-    </div>
-  `;
-  document.body.appendChild(modal);
+  const modal = document.querySelector(".testimonial-modal");
+  const modalImg = modal.querySelector("img");
+  const modalClose = modal.querySelector(".testimonial-modal-close");
 
-  const modalImg = modal.querySelector('.testimonial-modal-content img');
-  const closeBtn = modal.querySelector('.testimonial-modal-close');
-
-  // Open modal on click (AGORA USANDO .testimonial-click img)
-  document.querySelectorAll('.testimonial-click img').forEach(function(img){
-    img.addEventListener('click', function(e){
-      e.preventDefault(); // evita abrir o link
-      modalImg.src = this.src;
-      modal.classList.add('active');
+  document.querySelectorAll(".testimonial-click").forEach(card => {
+    card.addEventListener("click", () => {
+      modalImg.src = card.dataset.img;
+      modal.classList.add("active");
     });
   });
 
-  // Close by clicking the X
-  closeBtn.addEventListener('click', function(){
-    modal.classList.remove('active');
+  modalClose.addEventListener("click", () => {
+    modal.classList.remove("active");
   });
 
-  // Close by clicking outside content
-  modal.addEventListener('click', function(e){
-    if(e.target === modal){
-      modal.classList.remove('active');
-    }
+  modal.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.remove("active");
   });
 
 });
