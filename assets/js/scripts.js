@@ -28,23 +28,32 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================================
   // DEPOIMENTOS — POPUP MODAL
   // ============================================================
-  const modal = document.querySelector(".testimonial-modal");
-  const modalImg = modal.querySelector("img");
-  const modalClose = modal.querySelector(".testimonial-modal-close");
+  const modal = document.createElement('div');
+  modal.classList.add('testimonial-modal');
+  modal.innerHTML = `
+    <div class="testimonial-modal-content">
+      <span class="testimonial-modal-close">&times;</span>
+      <img src="" alt="Depoimento" class="testimonial-modal-img" />
+    </div>
+  `;
+  document.body.appendChild(modal);
 
-  document.querySelectorAll(".testimonial-click").forEach(card => {
-    card.addEventListener("click", () => {
-      modalImg.src = card.dataset.img;
-      modal.classList.add("active");
+  const modalImg = modal.querySelector('.testimonial-modal-img');
+  const modalClose = modal.querySelector('.testimonial-modal-close');
+
+  document.querySelectorAll('.testimonial-card img').forEach(card => {
+    card.addEventListener('click', () => {
+      modalImg.src = card.src;
+      modal.classList.add('active');
     });
   });
 
-  modalClose.addEventListener("click", () => {
-    modal.classList.remove("active");
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('active');
   });
 
-  modal.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.remove("active");
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.remove('active');
   });
 
   // ============================================================
