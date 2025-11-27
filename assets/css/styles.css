@@ -198,9 +198,10 @@ a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 10; /* Garantir que o festão está acima de outros elementos */
   width: 100%;
   padding: 20px 0;
+  visibility: visible;
 }
 
 .diagonal-banner .banner-content {
@@ -218,6 +219,7 @@ a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
   top: 20%;
   left: -10%;
   transform: rotate(-10deg);
+  visibility: visible;
 }
 
 .diagonal-banner.banner-2 {
@@ -225,4 +227,5 @@ a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
   bottom: 20%;
   right: -10%;
   transform: rotate(10deg);
+  visibility: visible;
 }
