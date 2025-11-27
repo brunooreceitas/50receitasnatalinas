@@ -179,7 +179,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro */
   justify-content: center;
   align-items: center;
   z-index: 999;
@@ -192,12 +192,12 @@ body {
 .testimonial-modal-content {
   background: white;
   padding: 20px;
-  max-width: 600px;
-  width: 80%; /* Ajusta o tamanho do modal */
+  max-width: 600px; /* Largura fixa */
+  width: 80%; /* Ajusta a largura do modal */
   border-radius: 12px;
   text-align: center;
-  max-height: 90vh; /* Limita a altura máxima */
-  overflow-y: auto; /* Permite rolagem se a imagem for muito grande */
+  max-height: 90vh; /* Limita a altura máxima do modal */
+  overflow-y: auto; /* Permite rolagem se necessário */
 }
 
 .testimonial-modal-close {
@@ -243,18 +243,25 @@ body {
 }
 
 .testimonial-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Dá zoom na imagem */
 }
 
-/* Modal de Imagem */
+/* Ajuste do Modal para Tela Pequena */
 @media (max-width: 980px) {
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
+
   .testimonial-img-container {
     padding: 0;
   }
+
+  .testimonial-modal-content {
+    width: 90%; /* Ajusta o modal para telas menores */
+    max-width: 95%;
+  }
 }
+
 
 /* FAQ */
 .faq-accordion details {
