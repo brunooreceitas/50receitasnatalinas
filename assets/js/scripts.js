@@ -15,25 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================================
   // DEPOIMENTOS — POPUP MODAL
   // ============================================================
-  const modal = document.createElement('div');
-  modal.classList.add('testimonial-modal');
-  modal.innerHTML = `
-    <div class="testimonial-modal-content">
-      <span class="testimonial-modal-close">&times;</span>
-      <img src="" alt="Depoimento" class="testimonial-modal-img" />
-    </div>
-  `;
-  document.body.appendChild(modal);
+  const modal = document.querySelector(".testimonial-modal");
+  const modalImg = modal.querySelector("img");
+  const modalClose = modal.querySelector(".testimonial-modal-close");
 
-  const modalImg = modal.querySelector('.testimonial-modal-img');
-  const modalClose = modal.querySelector('.testimonial-modal-close');
-
-  // Agora, vamos garantir que o clique no card do depoimento não abra um link
-  document.querySelectorAll('.testimonial-click').forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault(); // Evita o redirecionamento para outro link
-      modalImg.src = card.getAttribute('data-img'); // Usa o atributo de imagem
-      modal.classList.add('active');
+  document.querySelectorAll(".testimonial-click").forEach(card => {
+    card.addEventListener("click", (e) => {
+      const imgSrc = card.dataset.img;
+      if (imgSrc) {
+        modalImg.src = imgSrc;
+        modal.classList.add('active');
+      } else {
+        // Se não houver imagem, não faz nada
+        modal.classList.remove('active');
+      }
     });
   });
 
@@ -44,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.addEventListener('click', e => {
     if (e.target === modal) modal.classList.remove('active');
   });
+});
 
   // ============================================================
   // SIMPLES TOGGLE PARA 'DETAILS' EM BROWSERS MAIS ANTIGOS
