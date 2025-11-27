@@ -1,33 +1,7 @@
-// Small JS: smooth scrolling and minor interactions
-document.addEventListener('DOMContentLoaded', function(){
-  // smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
-    anchor.addEventListener('click', function(e){
-      var href = this.getAttribute('href');
-      if(href.length>1 && document.querySelector(href)){
-        e.preventDefault();
-        document.querySelector(href).scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    });
-  });
-
-  // simple toggle for details on older browsers
-  if(!('open' in document.createElement('details'))){
-    document.querySelectorAll('.faq-accordion details').forEach(function(d){
-      var summary = d.querySelector('summary');
-      summary.style.cursor = 'pointer';
-      summary.addEventListener('click', function(){
-        if(d.classList.contains('open')){ d.classList.remove('open'); } else { d.classList.add('open'); }
-      });
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ============================================================
-     SMOOTH SCROLL
-  ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+  // ============================================================
+  // SMOOTH SCROLL
+  // ============================================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", e => {
       const target = document.querySelector(anchor.getAttribute("href"));
@@ -38,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ============================================================
-     FESTÕES ANIMADOS - MOVIMENTO REALISTA
-  ============================================================ */
+  // ============================================================
+  // FESTÕES ANIMADOS - MOVIMENTO REALISTA
+  // ============================================================
   const banners = document.querySelectorAll(".diagonal-banner");
 
   window.addEventListener("scroll", () => {
@@ -51,10 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ============================================================
-     DEPOIMENTOS — POPUP MODAL
-  ============================================================ */
-
+  // ============================================================
+  // DEPOIMENTOS — POPUP MODAL
+  // ============================================================
   const modal = document.querySelector(".testimonial-modal");
   const modalImg = modal.querySelector("img");
   const modalClose = modal.querySelector(".testimonial-modal-close");
@@ -74,4 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) modal.classList.remove("active");
   });
 
+  // ============================================================
+  // SIMPLES TOGGLE PARA 'DETAILS' EM BROWSERS MAIS ANTIGOS
+  // ============================================================
+  if (!('open' in document.createElement('details'))) {
+    document.querySelectorAll('.faq-accordion details').forEach(function(d) {
+      const summary = d.querySelector('summary');
+      summary.style.cursor = 'pointer';
+      summary.addEventListener('click', function() {
+        d.classList.toggle('open');
+      });
+    });
+  }
 });
