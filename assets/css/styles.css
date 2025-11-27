@@ -64,12 +64,26 @@ html,body{margin:0;padding:0;font-family:var(--ff-sans);color:#222;background:#f
 .price{font-size:28px;color:var(--green);margin:12px 0}
 .price .old{text-decoration:line-through;color:var(--muted);display:block;font-size:14px}
 
-/* testimonials */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
-.testimonial-card{background:#fff;padding:18px;border-radius:16px;box-shadow:0 12px 34px rgba(0,0,0,0.08);text-align:center}
-.testimonial-card img{width:86px;height:86px;border-radius:50%;object-fit:cover;margin-bottom:12px}
-.testimonial-card blockquote{font-style:italic;color:#333;margin:0 0 8px}
-.testimonial-card .author{font-weight:700;color:var(--muted)}
+/* Depoimentos só com imagens */
+.testimonial-card {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  text-align: center;
+}
+
+.testimonial-card img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.testimonial-card blockquote,
+.testimonial-card .author {
+  display: none !important;
+}
+
 
 /* porque grid */
 .porque-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
@@ -97,3 +111,67 @@ html,body{margin:0;padding:0;font-family:var(--ff-sans);color:#222;background:#f
   .offer-card{flex-direction:column}
   .footer-grid{flex-direction:column;gap:16px}
 }
+
+/* Botões retangulares premium */
+.btn {
+  border-radius: 8px !important;
+  padding: 16px 26px !important;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.btn-primary {
+  background: #03b367;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: .88;
+}
+
+.btn-outline {
+  border-radius: 8px !important;
+  border: 2px solid var(--green);
+  color: var(--green);
+  background: transparent;
+}
+
+.hero-cta-row .btn-primary span {
+  margin-right: 6px;
+}
+
+.hero-text h1 {
+  color: #d4af37 !important; /* dourado premium */
+}
+
+/* FAQ corrigido */
+.faq-accordion details summary {
+  color: #222 !important;
+}
+
+.faq-accordion details p {
+  color: #222 !important;
+}
+
+.porque-card img {
+  display: none !important;
+}
+
+.porque-card {
+  text-align: left !important;
+  padding: 22px !important;
+}
+
+/* Oferta quadrada premium */
+.offer-card {
+  border-radius: 16px !important;
+  padding: 28px !important;
+  background: #fff8f0;
+  border: 3px solid #d4af37;
+}
+
+.offer-left img {
+  border-radius: 16px;
+}
+
