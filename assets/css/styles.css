@@ -1,3 +1,5 @@
+substitua pra mim no css antigo
+
 :root {
   --brown: #2d1a06;
   --accent: #fc7019;
@@ -175,23 +177,18 @@ body {
 .testimonial-modal {
   display: none; /* Inicialmente oculto */
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza o modal */
-  width: 80%; /* Ajusta o tamanho do modal */
-  max-width: 500px; /* Limita a largura */
-  max-height: 80vh; /* Limita a altura máxima */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.7); /* Fundo escuro */
   justify-content: center;
   align-items: center;
   z-index: 999;
-  opacity: 0; /* Inicialmente invisível */
-  transition: opacity 0.3s ease; /* Efeito de fade-in */
 }
 
 .testimonial-modal.active {
   display: flex; /* Torna o modal visível quando ativado */
-  opacity: 1; /* Aparece suavemente */
 }
 
 .testimonial-modal-content {
@@ -266,6 +263,7 @@ body {
     max-width: 95%;
   }
 }
+
 
 /* FAQ */
 .faq-accordion details {
