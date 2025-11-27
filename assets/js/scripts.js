@@ -19,12 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalImg = modal.querySelector("img");
   const modalClose = modal.querySelector(".testimonial-modal-close");
 
+  // Configuração para abrir o modal com a imagem do depoimento
   document.querySelectorAll(".testimonial-click").forEach(card => {
     card.addEventListener("click", (e) => {
       const imgSrc = card.dataset.img;
       if (imgSrc) {
         modalImg.src = imgSrc;
-        modal.classList.add('active');
+        modal.classList.add('active'); // Torna o modal visível
       } else {
         // Se não houver imagem, não faz nada
         modal.classList.remove('active');
@@ -32,10 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Fechar o modal quando clicar no botão de fechar
   modalClose.addEventListener('click', () => {
-    modal.classList.remove('active');
+    modal.classList.remove('active'); // Remove a classe 'active' para ocultar o modal
   });
 
+  // Fechar o modal se clicar fora da imagem
   modal.addEventListener('click', e => {
     if (e.target === modal) modal.classList.remove('active');
   });
