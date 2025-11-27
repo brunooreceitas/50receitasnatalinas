@@ -92,14 +92,56 @@ html,body{margin:0;padding:0;font-family:var(--ff-sans);color:#222;background:#f
   .offer-left img{max-width:280px}
 }
 
-/* Depoimentos (apenas imagens, como prints) */
-.testimonials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
-.testimonial-card{background:transparent;padding:0;box-shadow:none;border-radius:0;text-align:center}
-.testimonial-card img{width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display:block}
+/* Depoimentos — Ajuste para imagem menor e moldura dourada */
+.testimonials-grid {
+  display: flex; /* Usar flexbox para garantir que tudo esteja na mesma linha */
+  gap: 18px;
+  margin-top: 20px;
+  margin-bottom: 40px; /* Evitar que dependa do rodapé */
+  justify-content: center; /* Centraliza os itens na linha */
+}
 
-@media(max-width:980px) { 
-  .testimonials-grid{grid-template-columns:1fr} 
-  .testimonial-card img{height:220px} 
+.testimonial-card {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  text-align: center;
+}
+
+.testimonial-card img {
+  width: 200px; /* Tamanho ajustado para imagem menor */
+  height: 200px; /* Tamanho consistente */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: block;
+  border: 5px solid var(--gold); /* Moldura dourada */
+  transition: all 0.3s ease-in-out; /* Transição para animação de pop-up */
+  cursor: pointer; /* Cursor de ponteiro para indicar que é clicável */
+}
+
+/* Reduz o tamanho das imagens nos dispositivos menores */
+@media(max-width: 980px) {
+  .testimonials-grid {
+    flex-direction: column; /* Depoimentos empilhados em telas menores */
+    align-items: center; /* Centraliza as imagens */
+  }
+  .testimonial-card img {
+    height: 180px; /* Tamanho ajustado para telas menores */
+  }
+}
+
+/* Animação de pop-up */
+.testimonial-card img:hover {
+  transform: scale(1.1); /* Aumenta a imagem quando o usuário passa o mouse */
+  z-index: 2;
+}
+
+/* Estilo para o pop-up de imagem */
+.testimonial-card img.active {
+  transform: scale(1.2); /* Aumenta mais quando clicado */
+  z-index: 10; /* Garante que fique acima das outras imagens */
 }
 
 /* porque (simplificado — sem imagens) */
