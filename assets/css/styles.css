@@ -175,3 +175,63 @@ a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
   text-decoration: line-through;
   color: #a1a1a1;
 }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.testimonial-img-container {
+  border: 4px solid #FFD700; /* Borda dourada */
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.testimonial-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-img:hover {
+  transform: scale(1.05);
+}
+
+.diagonal-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.diagonal-banner .banner-content {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #FFD700;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.diagonal-banner.banner-1 {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  transform: rotate(-10deg);
+}
+
+.diagonal-banner.banner-2 {
+  position: absolute;
+  bottom: 20%;
+  right: -10%;
+  transform: rotate(10deg);
+}
