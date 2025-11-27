@@ -141,3 +141,38 @@ html,body{margin:0;padding:0;font-family:var(--ff-sans);color:#222;background:#f
 
 /* accessibility / focus */
 a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
+
+.offer-badges {
+  display: flex;
+  gap: 18px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.offer-badges img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.offer-note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.price .new {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--green);
+  margin-top: 4px;
+}
+
+.price .old {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #a1a1a1;
+}
+
