@@ -315,3 +315,50 @@ a:focus,button:focus{outline:3px solid rgba(212,175,55,0.25);outline-offset:2px}
     font-size: 26px;
   }
 }
+
+/* Estilo para o menu hamburguer */
+.menu-hamburger {
+  display: none; /* Inicialmente oculto em telas grandes */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+/* Exibir o menu hamburguer apenas no mobile */
+@media (max-width: 768px) {
+  .menu-hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none; /* Oculta o menu de navegação */
+    position: absolute;
+    top: 60px; /* Distância do topo */
+    left: 0;
+    width: 100%;
+    background-color: rgba(45, 26, 6, 0.98); /* Fundo do menu */
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Menu aberto */
+  .main-nav.open {
+    display: flex;
+  }
+}
+
