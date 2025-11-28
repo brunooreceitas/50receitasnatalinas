@@ -65,3 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Seleciona o ícone do menu hamburguer e o menu de navegação
+const menuHamburger = document.getElementById("menu-hamburger");
+const mainNav = document.getElementById("main-nav");
+
+// Adiciona o evento de clique ao ícone do hamburguer
+menuHamburger.addEventListener("click", function() {
+  mainNav.classList.toggle("open");  // Adiciona ou remove a classe 'open' ao menu
+});
