@@ -11,227 +11,81 @@
 
   <!-- CRITICAL CSS (inline) -->
   <style>
-    :root {
-      --gold: #f7e29d;
-      --gold2: #fff4c8;
-      --red: #b30000;
-      --green: #0bbf4f;
-      --dark: #070405;
-      --panel: #0f0f0f;
-      --muted: #cfcfcf;
-      --snow: rgba(255, 255, 255, 0.85);
-      --ease: cubic-bezier(.2, .9, .2, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      background: var(--dark);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(90deg, #a00000, #d40000, #ff3333);
-      color: var(--gold);
-      font-weight: 900;
-      font-size: 1.02rem;
-      z-index: 9999;
-    }
-
-    main {
-      margin-top: 84px;
-    }
-
+    :root{--gold:#f7e29d;--gold2:#fff4c8;--red:#b30000;--green:#0bbf4f;--dark:#070405;--panel:#0f0f0f;--muted:#cfcfcf;--snow:rgba(255,255,255,0.85);--ease:cubic-bezier(.2,.9,.2,1)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;background:var(--dark);color:#fff;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+    header{position:fixed;top:0;left:0;right:0;height:68px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#a00000,#d40000,#ff3333);color:var(--gold);font-weight:900;font-size:1.02rem;z-index:9999}
+    main{margin-top:84px}
     /* HERO */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 80px 18px;
-      background: linear-gradient(180deg, #150004, #3a0006);
-    }
-
-    .hero .bg {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 50;
-      max-width: 980px;
-      padding: 40px;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      line-height: 1.02;
-      font-weight: 900;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .hero p.lead {
-      color: var(--muted);
-      font-size: 1.15rem;
-      margin-bottom: 22px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 14px 34px;
-      border-radius: 12px;
-      font-weight: 900;
-      background: linear-gradient(90deg, #fff7d1, #ffe6a5);
-      color: #7a0000;
-      box-shadow: 0 20px 70px rgba(255, 220, 110, 0.12);
-      text-decoration: none;
-      transition: transform .16s var(--ease);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
-
-    .flags img {
-      width: 320px;
-      margin-top: 22px;
-      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
-    }
+    .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:80px 18px;background:linear-gradient(180deg,#150004,#3a0006)}
+    .hero .bg{position:absolute;inset:0;background:url('assets/images/imagemdahero.webp') center/cover no-repeat;filter:brightness(.28) saturate(1.2);z-index:1}
+    .hero .lights{position:absolute;inset:0;background:url('assets/images/natal-lights.png') center/cover no-repeat;mix-blend-mode:screen;opacity:.25;z-index:2}
+    .hero .snow-layer{position:absolute;inset:0;pointer-events:none;z-index:40}
+    .hero-inner{position:relative;z-index:50;max-width:980px;padding:40px}
+    .hero h1{font-size:3.2rem;line-height:1.02;font-weight:900;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px;text-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .hero p.lead{color:var(--muted);font-size:1.15rem;margin-bottom:22px}
+    .btn-primary{display:inline-block;padding:14px 34px;border-radius:12px;font-weight:900;background:linear-gradient(90deg,#fff7d1,#ffe6a5);color:#7a0000;box-shadow:0 20px 70px rgba(255,220,110,0.12);text-decoration:none;transition:transform .16s var(--ease)}
+    .btn-primary:hover{transform:translateY(-3px)}
+    .flags img{width:320px;margin-top:22px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.6))}
 
     /* Sections common */
-    section {
-      padding: 72px 20px;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .lead-muted {
-      color: var(--muted);
-      text-align: center;
-      max-width: 980px;
-      margin: 0 auto 22px;
-    }
+    section{padding:72px 20px}
+    .section-title{font-size:2.2rem;font-weight:900;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;text-align:center}
+    .lead-muted{color:var(--muted);text-align:center;max-width:980px;margin:0 auto 22px}
 
     /* Mosaic/proofs */
-    .mosaic {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
+    .mosaic{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .mosaic .pw{background:linear-gradient(145deg,#0f0f0f,#060606);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+    .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px}
 
-    .mosaic .pw {
-      background: linear-gradient(145deg, #0f0f0f, #060606);
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    }
+    /* value grid */
+    .value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+    .value-card{background:linear-gradient(180deg,#140000,#070000);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    .value-card h3{color:var(--gold);margin-bottom:8px}
+    .value-card p{color:var(--muted)}
 
-    .mosaic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+    /* bonus */
+    .bonus-grid{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+    .bonus-card{width:220px;background:linear-gradient(180deg,#2b0000,#100);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 18px 60px rgba(0,0,0,0.6);text-align:center}
+    .bonus-card img{width:56px;margin-bottom:8px}
+
+    /* mockup */
+    .mockup-wrap{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .mockup{width:420px;height:300px;border-radius:16px;background:linear-gradient(180deg,#0b0b0b,#030302);overflow:hidden;box-shadow:0 60px 160px rgba(0,0,0,0.6);transform-style:preserve-3d;transition:transform .5s var(--ease)}
+    .mockup img{width:100%;height:100%;object-fit:cover}
+
+    /* timeline */
+    .timeline{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .node{min-width:200px;background:linear-gradient(180deg,#1a0000,#070000);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+
+    /* vsl */
+    .vsl-box{max-width:980px;margin:20px auto;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);box-shadow:0 60px 160px rgba(0,0,0,0.7)}
+    .vsl-box iframe{width:100%;height:520px;border:0}
+
+    /* faq */
+    details{background:linear-gradient(180deg,#120000,#080000);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);margin-bottom:10px}
+    summary{cursor:pointer;font-weight:800;color:var(--gold);font-size:1.05rem}
+
+    .closing{padding:80px 20px;text-align:center;background:linear-gradient(180deg,#000,#0b0000)}
+    .closing img{width:320px;border-radius:12px;box-shadow:0 40px 120px rgba(0,0,0,0.6);margin-bottom:18px}
+
+    footer{padding:36px 20px;text-align:center;color:var(--muted);font-size:14px;background:#000}
+
+    /* floating actions */
+    .actions{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:12px;z-index:9998}
+    .fab{width:64px;height:64px;border-radius:999px;background:linear-gradient(135deg,#25d366,#16a34a);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 30px 80px rgba(37,211,102,0.18)}
+    .concierge{position:fixed;left:18px;bottom:18px;width:64px;height:64px;border-radius:999px;background:linear-gradient(135deg,#3a0b0b,#7a0f0f);display:flex;align-items:center;justify-content:center;font-size:20px;z-index:9998;box-shadow:0 30px 90px rgba(0,0,0,0.6)}
+    .concierge-panel{position:fixed;left:18px;bottom:92px;width:340px;background:linear-gradient(180deg,#0b0b0b,#060606);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 60px 160px rgba(0,0,0,0.7);display:none;z-index:9999}
 
     /* responsive */
-    @media(max-width: 980px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .vsl-box iframe {
-        height: 320px;
-      }
-      .mockup {
-        width: 320px;
-        height: 220px;
-      }
-    }
-
-    @media(max-width: 520px) {
-      header {
-        height: 60px;
-        font-size: .98rem;
-      }
-      .btn-primary {
-        padding: 12px 20px;
-      }
-      .mosaic {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .value-grid {
-        grid-template-columns: 1fr;
-      }
-      .mockup {
-        width: 280px;
-        height: 200px;
-      }
-    }
+    @media(max-width:980px){.hero h1{font-size:2.2rem}.vsl-box iframe{height:320px}.mockup{width:320px;height:220px}}
+    @media(max-width:520px){header{height:60px;font-size:.98rem}.btn-primary{padding:12px 20px}.mosaic{grid-template-columns:repeat(2,1fr)}.value-grid{grid-template-columns:1fr}.mockup{width:280px;height:200px}}
 
     /* reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: all .7s var(--ease);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal{opacity:0;transform:translateY(14px);transition:all .7s var(--ease)}
+    .reveal.visible{opacity:1;transform:none}
   </style>
 
   <!-- Defer heavy libraries (GSAP, Lenis) but include placeholders -->
@@ -239,22 +93,30 @@
   <script defer src="https://unpkg.com/gsap@3.12.0/dist/ScrollTrigger.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.24/dist/lenis.min.js"></script>
 
+  <!-- Meta Pixel -->
+  <script>
+    /* Meta Pixel - Insert your Pixel ID here */
+    window.fbq = window.fbq || function(){(window.fbq.q=window.fbq.q||[]).push(arguments)};
+    fbq('init', 'PIXEL_ID'); // Replace PIXEL_ID with your Meta Pixel ID
+    fbq('track', 'PageView');
+  </script>
+
 </head>
 <body>
 <header aria-hidden="false">🎄 Oferta Especial de Natal — Últimas Vagas com Desconto 🎁</header>
 <main>
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
-    <div class="bg" aria-hidden="true">
-      <video autoplay muted>
-        <source src="https://drive.google.com/uc?export=download&id=1dItV8BqykBdlRpWCfYZp07TufepTjgcl" type="video/mp4">
-        Seu navegador não suporta a reprodução de vídeos.
-      </video>
-    </div>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="lights" aria-hidden="true"></div>
+    <div class="snow-layer" id="snowLayer" aria-hidden="true"></div>
+
     <div class="hero-inner container">
       <h1 class="reveal">Transforme sua cozinha em uma máquina de lucro neste Natal</h1>
       <p class="lead lead-muted reveal">50 receitas testadas, rápidas e baratas — com markup sugerido e roteiro de vendas para você vender ainda em dezembro.</p>
+
       <a class="btn-primary reveal" id="ctaHero" href="https://pay.kiwify.com.br/XYXtV6d" target="_blank" rel="noopener">Quero lucrar neste Natal 🎄</a>
+
       <div class="flags reveal" style="margin-top:18px">
         <picture>
           <source srcset="assets/images/bandeirascartoes.webp" type="image/webp">
@@ -264,7 +126,7 @@
     </div>
   </section>
 
-  <!-- PROVAS -->
+ <!-- PROVAS -->
   <section class="provas" id="provas">
     <div class="container">
       <h2 class="section-title reveal">Mural de Provas — Resultados Reais</h2>
@@ -278,7 +140,7 @@
     </div>
   </section>
 
-  <!-- BENEFÍCIOS -->
+  <!-- BENEFICIOS -->
   <section class="beneficios">
     <div class="container">
       <h2 class="section-title reveal">O que você vai receber — Value Stack</h2>
@@ -313,7 +175,7 @@
     </div>
   </section>
 
-  <!-- MOCKUP + CTA -->
+ <!-- MOCKUP + CTA -->
   <section class="mockup-section">
     <div class="container">
       <h2 class="section-title reveal">Visualize o E-book</h2>
@@ -323,7 +185,7 @@
         <div style="max-width:480px;text-align:left;color:var(--muted)">
           <h3 style="color:var(--gold)">Tudo pronto para vender</h3>
           <p>Templates, scripts e design prontos — envie o link e comece a vender hoje.</p>
-          <a class="btn-primary" id="ctaMockup" href="https://pay.kiwify.com.br/XYXtV6d" target="_blank" rel="noopener">Comprar agora</a>
+                  <a class="btn-primary" id="ctaMockup" href="https://pay.kiwify.com.br/XYXtV6d" target="_blank" rel="noopener">Comprar agora</a>
         </div>
       </div>
     </div>
@@ -389,8 +251,100 @@
       <p style="color:var(--muted);margin-top:10px" class="reveal">Compra segura · Acesso imediato · Garantia total de 30 dias</p>
     </div>
   </section>
-
 </main>
 
+<!-- Actions & Concierge -->
+<div class="actions">
+  <a class="fab" id="waFab" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais" target="_blank" rel="noopener">📲</a>
+</div>
+<div class="concierge" id="concierge">🤵</div>
+<div class="concierge-panel" id="conciergePanel" role="dialog" aria-hidden="true">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px"><div style="width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#fff)"></div><div><strong>Concierge VIP</strong><div style="color:var(--muted);font-size:13px">Atendimento personalizado</div></div></div>
+  <p style="color:var(--muted);font-size:14px">Quer condição especial? Posso verificar disponibilidade e enviar link com bônus.</p>
+  <div style="display:flex;gap:8px;margin-top:12px"><a class="btn-primary" id="conciergeWa" href="https://wa.me/5511999999999?text=Quero%20concierge" target="_blank" rel="noopener">Falar no WhatsApp</a><button id="closeConcierge" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 12px;border-radius:8px;cursor:pointer">Fechar</button></div>
+</div>
+
+<footer>© 2025 Receitas de Ouro — Todos os direitos reservados.</footer>
+
+<!-- SCRIPTS: performance, tracking events, GSAP + Lenis enhancements, CRO -->
+<script>
+// ========== Utilities ==========
+const now = () => new Date().toISOString();
+function sendEvent(name, data={}){
+  // DataLayer for GA4
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({event: name, ...data});
+  // FB Pixel
+  if(window.fbq) try{ fbq('trackCustom', name, data); }catch(e){}
+  // console log for debug
+  console.log('Event', name, data, now());
+}
+
+// ========== Reveal on scroll ==========
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12});
+  items.forEach(i=>io.observe(i));
+})();
+
+// ========== Snow layer (optimized) ==========
+(function(){
+  const layer = document.getElementById('snowLayer'); if(!layer) return;
+  const count = Math.min(100, Math.round(window.innerWidth/12));
+  for(let i=0;i<count;i++){const s=document.createElement('div');s.className='snowflake';const left=Math.random()*100;const size=4+Math.random()*10;s.style.left=left+'vw';s.style.width=size+'px';s.style.height=size+'px';s.style.opacity=(0.25+Math.random()*0.9);s.style.top=(-5-Math.random()*20)+'vh';s.style.animationDuration=(6+Math.random()*10)+'s';layer.appendChild(s);} 
+})();
+
+// ========== Particles gold (desktop only) ==========
+(function(){
+  if(window.matchMedia && window.matchMedia('(max-width:740px)').matches) return; // save cpu on mobile
+  const c = document.createElement('canvas'); c.style.position='absolute'; c.style.inset='0'; c.style.zIndex='5'; c.style.pointerEvents='none'; document.querySelector('.hero').appendChild(c);
+  const ctx = c.getContext('2d'); function resize(){c.width=innerWidth;c.height=innerHeight;} resize(); window.addEventListener('resize', resize);
+  const P=[]; for(let i=0;i<90;i++){P.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.6+0.4,vx:(Math.random()-.5)/6,vy:(Math.random()-.5)/6,a:Math.random()*Math.PI*2});}
+  (function frame(){ctx.clearRect(0,0,c.width,c.height); for(const p of P){p.x+=p.vx; p.y+=p.vy; p.a+=.02; if(p.x<0)p.x=c.width; if(p.x>c.width)p.x=0; if(p.y<0)p.y=c.height; if(p.y>c.height)p.y=0; ctx.beginPath(); ctx.fillStyle='rgba(247,193,64,'+(0.06+Math.sin(p.a)*0.04)+')'; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); } requestAnimationFrame(frame); })();
+})();
+
+// ========== Mockup tilt ==========
+(function(){ const mockup=document.getElementById('mockup'); if(!mockup) return; mockup.addEventListener('mousemove', e=>{const r=mockup.getBoundingClientRect();const cx=r.left+r.width/2;const cy=r.top+r.height/2;const dx=(e.clientX-cx)/r.width;const dy=(e.clientY-cy)/r.height;const rx=(-dy*10).toFixed(2);const ry=(dx*10).toFixed(2);mockup.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`}); mockup.addEventListener('mouseleave',()=>mockup.style.transform='rotateX(0) rotateY(0) translateZ(0)'); })();
+
+// ========== Mosaic modal ==========
+(function(){ const mosaic=document.getElementById('mosaic'); if(!mosaic) return; mosaic.addEventListener('click', e=>{const img=e.target.closest('img'); if(!img) return; const src=img.src; const modal=document.createElement('div'); modal.style.position='fixed'; modal.style.inset=0; modal.style.background='rgba(0,0,0,0.92)'; modal.style.display='flex'; modal.style.alignItems='center'; modal.style.justifyContent='center'; modal.style.zIndex=99999; modal.innerHTML=`<div style="max-width:92vw;max-height:92vh"><img src="${src}" style="max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 90px rgba(0,0,0,0.8)"></div>`; document.body.appendChild(modal); modal.addEventListener('click', ()=> modal.remove()); }); })();
+
+// ========== Concierge open/close ==========
+(function(){ const ic=document.getElementById('concierge'), panel=document.getElementById('conciergePanel'), close=document.getElementById('closeConcierge'); if(ic && panel){ic.addEventListener('click', ()=>{const open = panel.style.display === 'block'; panel.style.display = open ? 'none' : 'block'; panel.setAttribute('aria-hidden', open ? 'true' : 'false');}); if(close) close.addEventListener('click', ()=>{panel.style.display='none';panel.setAttribute('aria-hidden','true')}); } })();
+
+// ========== CTA events (tracking) ==========
+(function(){
+  document.getElementById('ctaHero')?.addEventListener('click', ()=>{ sendEvent('CTA_Hero', {label:'Hero CTA'}); });
+  document.getElementById('ctaMockup')?.addEventListener('click', ()=>{ sendEvent('CTA_Mockup',{label:'Mockup CTA'}); });
+  document.getElementById('ctaClosing')?.addEventListener('click', ()=>{ sendEvent('CTA_Closing',{label:'Closing CTA'}); });
+  document.getElementById('waFab')?.addEventListener('click', ()=>{ sendEvent('WhatsApp_Click',{label:'Floating WA'}); });
+  document.getElementById('conciergeWa')?.addEventListener('click', ()=>{ sendEvent('WhatsApp_Click',{label:'Concierge WA'}); });
+})();
+
+// ========== Exit intent popup ==========
+(function(){ let shown=false; function show(){ if(shown) return; shown=true; const d=document.createElement('div'); d.style.position='fixed'; d.style.inset=0; d.style.zIndex=9999999; d.style.background='rgba(0,0,0,0.78)'; d.style.display='flex'; d.style.alignItems='center'; d.style.justifyContent='center'; d.innerHTML=`<div style="background:#0b0b0b;padding:26px;border-radius:12px;max-width:420px;text-align:center;border:1px solid rgba(255,255,255,0.04)"><h3 style="color:var(--gold);margin-bottom:8px">Antes de sair…</h3><p style="color:var(--muted);margin-bottom:14px">Quer um cupom exclusivo para garantir o desconto agora?</p><a href="https://wa.me/5511999999999?text=Quero%20o%20cupom%20exclusivo" style="display:inline-block;padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,#fff7d1,#ffe6a5);color:#700000;font-weight:900;text-decoration:none">Quero o cupom</a></div>`; document.body.appendChild(d); d.addEventListener('click', ()=> d.remove()); sendEvent('Exit_Popup_Shown'); }
+  document.addEventListener('mouseleave', e=>{ if(e.clientY<0) show(); });
+})();
+
+// ========== Performance tweaks ==========
+(function(){ // lazy load images already set; defer heavy libraries included; remove particle on small devices
+  if(window.matchMedia && window.matchMedia('(max-width:740px)').matches){ document.querySelectorAll('canvas, .snow-layer, .lights').forEach(el=>el && (el.style.display='none')); }
+})();
+
+// ========== Smooth scroll + GSAP niceties (init after load) ==========
+window.addEventListener('load', ()=>{
+  // Lenis smooth scroll - optional
+  try{
+    const Lenis = window.Lenis?.default || window.Lenis;
+    if(Lenis){ const lenis = new Lenis({duration:1.2,easing:t=>Math.pow(t,0.7)}); function raf(time){ lenis.raf(time); requestAnimationFrame(raf);} requestAnimationFrame(raf); }
+  }catch(e){console.warn('Lenis init failed',e)}
+  // GSAP reveal stagger for hero
+  try{
+    if(window.gsap){ gsap.from('.hero-inner .reveal',{y:18,opacity:0,duration:0.9,stagger:0.08,ease:'power3.out'}); }
+  }catch(e){console.warn('GSAP init failed',e)}
+});
+
+</script>
 </body>
 </html>
+
